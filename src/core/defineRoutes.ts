@@ -1,4 +1,4 @@
-import type { RoutesInput, RoutesConfig } from '../types/core'
+import type { RoutesInput, RoutesConfig } from '@/types/core'
 
 export const defineRoutes = <TRoutes extends Record<string, Record<string, string>>>(
   input: RoutesInput<TRoutes>

@@ -1,7 +1,7 @@
 import { compile, match } from 'path-to-regexp'
 import { nextPatternToPathToRegexp } from './pattern'
-import type { RoutesConfig } from '../types/core'
-import type { Params } from '../types/shared'
+import type { RoutesConfig } from '@/types/core'
+import type { Params } from '@/types/shared'
 
 const normalize = (pattern: string) => (pattern === '/' ? '' : pattern)
 

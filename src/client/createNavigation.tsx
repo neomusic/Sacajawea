@@ -2,9 +2,9 @@
 
 import NextLink from 'next/link'
 import { useParams } from 'next/navigation'
-import { getPathname } from '../core/resolve'
-import type { RoutesConfig } from '../types/core'
-import type { LinkProps } from '../types/client'
+import { getPathname } from '@/core/resolve'
+import type { RoutesConfig } from '@/types/core'
+import type { LinkProps } from '@/types/client'
 
 export const createNavigation = (config: RoutesConfig) => {
   const useLocale = (): string => {

@@ -1,7 +1,7 @@
-import { getAlternates, getPathname, internalPathname, matchPathname } from '../core/resolve'
-import type { RoutesConfig } from '../types/core'
-import type { Params } from '../types/shared'
-import type { MinimalRequest, ProxyResult } from '../types/app'
+import { getAlternates, getPathname, internalPathname, matchPathname } from '@/core/resolve'
+import type { RoutesConfig } from '@/types/core'
+import type { Params } from '@/types/shared'
+import type { MinimalRequest, ProxyResult } from '@/types/app'
 
 const headerValue = (headers: MinimalRequest['headers'], name: string): string =>
   (headers instanceof Map ? headers.get(name) : headers.get(name)) ?? ''
