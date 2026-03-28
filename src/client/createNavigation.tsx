@@ -16,6 +16,7 @@ export const createNavigation = (config: RoutesConfig) => {
     const resolvedHref = route
       ? getPathname(config, { route, locale: locale ?? config.defaultLocale, params })
       : href
+    // biome-ignore lint/style/noNonNullAssertion: route or href is required, so one branch above always sets it
     return <NextLink href={resolvedHref!} {...rest} />
   }
 

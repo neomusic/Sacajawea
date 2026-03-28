@@ -7,6 +7,7 @@ const headerValue = (headers: MinimalRequest['headers'], name: string): string =
   (headers instanceof Map ? headers.get(name) : headers.get(name)) ?? ''
 
 const detectLocale = (config: RoutesConfig, acceptLanguage: string): string => {
+  // biome-ignore lint/style/noNonNullAssertion: split() always returns a non-empty array, [0] is never undefined
   const preferred = acceptLanguage.split(',').map(part => part.split(';')[0]!.trim().slice(0, 2))
   return preferred.find(lang => config.locales.includes(lang)) ?? config.defaultLocale
 }
