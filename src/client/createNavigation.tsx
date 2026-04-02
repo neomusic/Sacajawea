@@ -2,16 +2,9 @@
 
 import NextLink from 'next/link'
 import { useParams } from 'next/navigation'
-import type { ComponentProps } from 'react'
 import { getPathname } from '../core/resolve'
-import type { RoutesConfig } from '../core/types'
-
-type LinkProps = Omit<ComponentProps<typeof NextLink>, 'href'> & {
-  href?: ComponentProps<typeof NextLink>['href']
-  route?: string
-  locale?: string
-  params?: Record<string, string | string[]>
-}
+import type { RoutesConfig } from '../types/core'
+import type { LinkProps } from '../types/client'
 
 export const createNavigation = (config: RoutesConfig) => {
   const useLocale = (): string => {
