@@ -1,4 +1,4 @@
-import { defineConfig } from 'tsup'
+import { defineConfig } from 'tsdown'
 
 export default defineConfig([
   {
@@ -11,7 +11,7 @@ export default defineConfig([
     dts: true,
     clean: true,
     sourcemap: true,
-    external: ['react', 'react-dom', 'next']
+    deps: { neverBundle: ['react', 'react-dom', 'next'] }
   },
   {
     entry: { 'cli/bin': 'src/cli/bin.ts' },
