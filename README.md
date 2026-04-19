@@ -121,4 +121,4 @@ Not in this release (planned as follow-ups): Pages Router adapter, `<LocaleSwitc
 
 ## License
 
-MIT
+Apache-2.0
