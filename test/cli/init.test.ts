@@ -21,6 +21,11 @@ describe('runInit', () => {
     expect(existsSync(join(cwd, 'proxy.ts'))).toBe(true)
     expect(readFileSync(join(cwd, 'sacajawea.config.ts'), 'utf8')).toContain('defineRoutes')
     expect(readFileSync(join(cwd, 'app', '[locale]', 'page.tsx'), 'utf8')).toContain(`route: 'home'`)
+
+    const proxySource = readFileSync(join(cwd, 'proxy.ts'), 'utf8')
+    expect(proxySource).toContain(`import { NextResponse, type NextRequest } from 'next/server'`)
+    expect(proxySource).toContain('export const config = {')
+    expect(proxySource).not.toContain('proxyConfig')
   })
 
   it('throws when neither app/ nor pages/ exists', () => {

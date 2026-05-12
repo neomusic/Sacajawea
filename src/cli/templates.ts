@@ -22,12 +22,22 @@ export default function LocaleLayout({ children }: { children: ReactNode }) {
 }
 `
 
-export const proxyTemplate = () => `import { createProxy } from '@neomusic/sacajawea/app'
-import config from './sacajawea.config'
+export const proxyTemplate = () => `import { NextResponse, type NextRequest } from 'next/server'
+import { createAppHelpers } from '@neomusic/sacajawea/app'
+import routesConfig from './sacajawea.config'
 
-export default createProxy(config)
+const { createProxy } = createAppHelpers(routesConfig)
 
-export const proxyConfig = {
+export default function proxy(request: NextRequest) {
+  const result = createProxy(request)
+
+  if (result.redirect) return NextResponse.redirect(new URL(result.redirect, request.url))
+  if (result.rewrite) return NextResponse.rewrite(new URL(result.rewrite, request.url))
+
+  return NextResponse.next()
+}
+
+export const config = {
   matcher: ['/((?!_next|api|.*\\\\..*).*)']
 }
 `
