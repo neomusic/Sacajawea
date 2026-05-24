@@ -1,6 +1,6 @@
 import { existsSync, mkdirSync, writeFileSync } from 'node:fs'
 import { join } from 'node:path'
-import { configTemplate, localeLayoutTemplate, pageTemplate, proxyTemplate } from './templates'
+import { configImportPathForSegments, configTemplate, localeLayoutTemplate, pageTemplate, proxyTemplate } from './templates'
 
 export const runInit = ({
   cwd,
@@ -20,7 +20,7 @@ export const runInit = ({
     const localeDir = join(cwd, 'app', '[locale]')
     mkdirSync(localeDir, { recursive: true })
     writeFileSync(join(localeDir, 'layout.tsx'), localeLayoutTemplate())
-    writeFileSync(join(localeDir, 'page.tsx'), pageTemplate('home', '../../sacajawea.config'))
+    writeFileSync(join(localeDir, 'page.tsx'), pageTemplate('home', configImportPathForSegments([])))
     writeFileSync(join(cwd, 'proxy.ts'), proxyTemplate())
   }
 }

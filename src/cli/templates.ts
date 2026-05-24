@@ -32,7 +32,10 @@ export const proxyConfig = {
 }
 `
 
-export const pageTemplate = (routeName: string, configImportPath = '../../../sacajawea.config') =>
+export const configImportPathForSegments = (segments: string[]): string =>
+  `${'../'.repeat(2 + segments.length)}sacajawea.config`
+
+export const pageTemplate = (routeName: string, configImportPath: string) =>
   `import { createAppHelpers } from '@neomusic/sacajawea/app'
 import config from '${configImportPath}'
 
