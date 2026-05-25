@@ -17,8 +17,10 @@ describe('runInit', () => {
 
     expect(existsSync(join(cwd, 'sacajawea.config.ts'))).toBe(true)
     expect(existsSync(join(cwd, 'app', '[locale]', 'layout.tsx'))).toBe(true)
+    expect(existsSync(join(cwd, 'app', '[locale]', 'page.tsx'))).toBe(true)
     expect(existsSync(join(cwd, 'proxy.ts'))).toBe(true)
     expect(readFileSync(join(cwd, 'sacajawea.config.ts'), 'utf8')).toContain('defineRoutes')
+    expect(readFileSync(join(cwd, 'app', '[locale]', 'page.tsx'), 'utf8')).toContain(`route: 'home'`)
   })
 
   it('throws when neither app/ nor pages/ exists', () => {
