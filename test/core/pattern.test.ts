@@ -11,11 +11,11 @@ describe('nextPatternToPathToRegexp', () => {
   })
 
   it('converts a catch-all segment', () => {
-    expect(nextPatternToPathToRegexp('/docs/[...path]')).toBe('/docs/:path+')
+    expect(nextPatternToPathToRegexp('/docs/[...path]')).toBe('/docs/*path')
   })
 
   it('converts an optional catch-all segment', () => {
-    expect(nextPatternToPathToRegexp('/shop/[[...path]]')).toBe('/shop{/:path*}')
+    expect(nextPatternToPathToRegexp('/shop/[[...path]]')).toBe('/shop{/*path}')
   })
 
   it('converts multiple dynamic segments', () => {
