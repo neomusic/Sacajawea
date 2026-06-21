@@ -11,6 +11,9 @@ npm-debug.log
 # coverage
 coverage
 
+# typescript
+*.tsbuildinfo
+
 TARGET.md
 .vscode
 .idea

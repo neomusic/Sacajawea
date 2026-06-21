@@ -1,101 +1,84 @@
 {
-  "name": "@palmabit/sacajawea",
-  "version": "2.1.6",
-  "description": "Manage your multi-language routes with Next.js, easily",
+  "name": "@neomusic/sacajawea",
+  "version": "3.0.0",
+  "description": "SEO-correct multi-locale routing for Next.js App Router, built on native i18n",
+  "type": "module",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Palmabit-IT/Sacajawea.git"
+    "url": "git+https://github.com/neomusic/sacajawea.git"
   },
-  "main": "dist",
-  "files": [
-    "dist"
-  ],
-  "scripts": {
-    "lint": "eslint 'src/*' 'test/*'",
-    "lint-fix": "eslint --fix src/*",
-    "build": "del dist/* && babel src -d dist",
-    "prepublishOnly": "npm run test",
-    "pretest": "npm run lint && npm run build",
-    "test": "npm run testOnly",
-    "testOnly": "jest \\.test.js --coverage",
-    "testDev": "jest \\.test.js --coverage --watchAll",
-    "testCI": "npm run test && cat coverage/lcov.info | coveralls"
+  "bugs": {
+    "url": "https://github.com/neomusic/sacajawea/issues"
   },
-  "jest": {
-    "roots": [
-      "test/",
-      "dist/"
-    ],
-    "setupFiles": [
-      "raf/polyfill",
-      "./test/setup.js"
-    ],
-    "unmockedModulePathPatterns": [
-      "<rootDir>/node_modules/react"
-    ],
-    "collectCoverageFrom": [
-      "**/*.{js,jsx}",
-      "!**/node_modules/**",
-      "!**/dist/**",
-      "!src/link/**",
-      "!**/config/**"
-    ]
-  },
-  "dependencies": {
-    "async": "^2.6.1",
-    "eslint": "^5.5.0",
-    "eslint-plugin-jest": "^21.22.0",
-    "iso-639-1": "^2.0.3",
-    "lodash.clonedeep": "^4.5.0",
-    "lodash.pick": "^4.4.0",
-    "path-to-regexp": "^1.7.0",
-    "prop-types": "^15.6.1",
-    "remove-trailing-separator": "^1.1.0"
-  },
-  "peerDependencies": {
-    "next": ">=4",
-    "react": "^16"
-  },
-  "devDependencies": {
-    "@babel/cli": "^7.1.2",
-    "@babel/core": "^7.1.2",
-    "@babel/polyfill": "^7.0.0",
-    "@babel/preset-env": "^7.1.0",
-    "@types/next": "^7.0.1",
-    "babel-core": "^7.0.0-bridge.0",
-    "babel-eslint": "10.0.1",
-    "babel-jest": "^25.0.0",
-    "concurrently": "^3.5.0",
-    "coveralls": "^3.0.1",
-    "del-cli": "^1.1.0",
-    "enzyme": "^3.3.0",
-    "enzyme-adapter-react-16": "^1.1.1",
-    "jest": "^25.0.0",
-    "jest-extended": "^0.11.0",
-    "next": ">=7.0.2",
-    "node-mocks-http": "^1.7.0",
-    "react": "^16.0.0",
-    "react-dom": "^16.0.0",
-    "react-test-renderer": "^16.0.0",
-    "regenerator-runtime": "^0.12.1"
-  },
+  "homepage": "https://github.com/neomusic/sacajawea#readme",
   "author": "neomusic",
   "license": "MIT",
   "keywords": [
     "next",
     "next.js",
     "react",
-    "route",
-    "router",
-    "routes",
-    "routing",
-    "multi-language",
-    "next-middleware"
+    "i18n",
+    "seo",
+    "hreflang",
+    "app-router",
+    "routing"
   ],
-  "bugs": {
-    "url": "https://github.com/Palmabit-IT/Sacajawea/issues"
+  "files": [
+    "dist"
+  ],
+  "bin": {
+    "sacajawea": "./dist/cli/bin.js"
   },
-  "homepage": "https://github.com/Palmabit-IT/Sacajawea#readme",
+  "exports": {
+    ".": {
+      "types": "./dist/core/index.d.ts",
+      "import": "./dist/core/index.js",
+      "require": "./dist/core/index.cjs"
+    },
+    "./client": {
+      "types": "./dist/client/index.d.ts",
+      "import": "./dist/client/index.js",
+      "require": "./dist/client/index.cjs"
+    },
+    "./app": {
+      "types": "./dist/app/index.d.ts",
+      "import": "./dist/app/index.js",
+      "require": "./dist/app/index.cjs"
+    }
+  },
+  "scripts": {
+    "build": "tsup",
+    "lint": "eslint src test",
+    "lint-fix": "eslint --fix src test",
+    "test": "vitest run",
+    "testDev": "vitest",
+    "typecheck": "tsc --noEmit",
+    "prepublishOnly": "npm run lint && npm run typecheck && npm run test && npm run build"
+  },
+  "peerDependencies": {
+    "next": ">=14",
+    "react": "^18 || ^19"
+  },
+  "dependencies": {
+    "path-to-regexp": "^8.2.0",
+    "commander": "^12.1.0",
+    "@inquirer/prompts": "^7.2.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.17.0",
+    "@testing-library/react": "^16.1.0",
+    "@types/react": "^19.0.2",
+    "@typescript-eslint/eslint-plugin": "^8.19.0",
+    "@typescript-eslint/parser": "^8.19.0",
+    "eslint": "^9.17.0",
+    "jsdom": "^25.0.1",
+    "next": "^16.2.10",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "tsup": "^8.5.1",
+    "typescript": "^5.7.0",
+    "vitest": "^3.0.0"
+  },
   "directories": {
     "test": "test"
   }
