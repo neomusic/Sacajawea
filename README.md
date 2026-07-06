@@ -20,4 +20,7 @@ In the future I will want to implement:
 + handle error with exact status code 
 + static SEO files (robots.txt, google verification file, etc)
 
-### [See the documentation](https://github.com/Palmabit-IT/Sacajawea/wiki)
+### New version in development
+
+A new version, targeting Next.js App Router, is in development on the
+[`v3` branch](https://github.com/neomusic/Sacajawea/tree/v3).
