@@ -12,7 +12,8 @@ canonical and sitemap wiring that pretty multi-locale URLs need to be indexed co
 If you're on Pages Router, use its [native i18n routing](https://nextjs.org/docs/pages/building-your-application/routing/internationalization)
 instead — you don't need this package there.
 
-> Coming from v2 (`@palmabit/sacajawea`)? See [docs/MIGRATION-v2-v3.md](docs/MIGRATION-v2-v3.md). v3 is a
+> Coming from v2 (`@palmabit/sacajawea`)? See the
+> [migration guide](https://github.com/neomusic/Sacajawea/wiki/Migration-v2-to-v3) on the wiki. v3 is a
 > different package (`@neomusic/sacajawea`) with a different architecture, not a drop-in upgrade.
 
 ## Install
@@ -118,6 +119,11 @@ Built and verified against a real Next 16 App Router project: redirect on `/`, p
 
 Not in this release (planned as follow-ups): Pages Router adapter, `<LocaleSwitcher>`,
 `sacajawea doctor` (SEO lint), JSON-LD helpers, a v2→v3 config codemod.
+
+## Documentation
+
+Full docs, API reference and the v2→v3 migration guide live on the
+[wiki](https://github.com/neomusic/Sacajawea/wiki).
 
 ## License
 
