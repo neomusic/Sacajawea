@@ -12,9 +12,9 @@ canonical and sitemap wiring that pretty multi-locale URLs need to be indexed co
 If you're on Pages Router, use its [native i18n routing](https://nextjs.org/docs/pages/building-your-application/routing/internationalization)
 instead - you don't need this package there.
 
-> Coming from v2 (`@palmabit/sacajawea`)? See the
-> [migration guide](https://github.com/neomusic/Sacajawea/wiki/Migration-v2-to-v3) on the wiki. v3 is a
-> different package (`@neomusic/sacajawea`) with a different architecture, not a drop-in upgrade.
+> On Pages Router, or evaluating v2 (`@palmabit/sacajawea`)? See
+> [v2 vs v3](https://github.com/neomusic/Sacajawea/wiki/Differences-v2-vs-v3) on the wiki. v3 is a
+> separate package (`@neomusic/sacajawea`) for App Router, not an upgrade of v2.
 
 ## Install
 
@@ -122,7 +122,7 @@ Not in this release (planned as follow-ups): Pages Router adapter, `<LocaleSwitc
 
 ## Documentation
 
-Full docs, API reference and the v2→v3 migration guide live on the
+Full docs, API reference and the v2 vs v3 comparison live on the
 [wiki](https://github.com/neomusic/Sacajawea/wiki).
 
 ## License
